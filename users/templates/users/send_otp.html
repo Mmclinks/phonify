@@ -1,0 +1,17 @@
+{% extends 'users/base.html' %}
+
+{% block title %}Регистрация | Phonify{% endblock %}
+
+{% block content %}
+    <h1>Введите номер телефона</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="phone_number">Номер телефона:</label>
+        <input type="text" name="phone_number" required>
+        
+        <label for="invite_code">Инвайт-код (необязательно):</label>
+        <input type="text" name="invite_code">
+        
+        <button type="submit">Получить код</button>
+    </form>
+{% endblock %}

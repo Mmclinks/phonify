@@ -1,0 +1,14 @@
+{% extends 'users/base.html' %}
+
+{% block title %}Подтверждение | Phonify{% endblock %}
+
+{% block content %}
+    <h1>Введите код подтверждения</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="otp_code">Код подтверждения:</label>
+        <input type="text" name="otp_code" required>
+        <button type="submit">Подтвердить</button>
+    </form>
+    <p>На номер {{ phone_number }} был отправлен код.</p>
+{% endblock %}

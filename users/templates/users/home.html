@@ -1,0 +1,18 @@
+{% extends 'users/base.html' %}
+
+{% block title %}Профиль | Phonify{% endblock %}
+
+{% block content %}
+    <h1>Добро пожаловать, {{ user.username|default:"Гость" }}!</h1>
+    <p>Ваш номер телефона: {{ user.phone_number }}</p>
+    <p>Ваш инвайт-код: {{ user.invite_code|default:"Не назначен" }}</p>
+
+    <h2>Кого вы пригласили:</h2>
+    <ul>
+        {% for invitee in user.invitees.all %}
+            <li>{{ invitee.phone_number }}</li>
+        {% empty %}
+            <li>Вы пока никого не пригласили.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
