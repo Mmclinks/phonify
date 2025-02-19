@@ -6,11 +6,12 @@
     <h1>Введите номер телефона</h1>
     <form method="POST">
         {% csrf_token %}
-        <label for="phone_number">Номер телефона:</label>
-        <input type="text" name="phone_number" required>
         
-        <label for="invite_code">Инвайт-код (необязательно):</label>
-        <input type="text" name="invite_code">
+        <label for="phone_number">Номер телефона:</label>
+        <input type="text" name="phone_number" id="phone_number" required>
+        
+        <label for="invite_code">invite-код (необязательно):</label>
+        <input type="text" name="invite_code" id="invite_code">
         
         <button type="submit">Получить код</button>
     </form>

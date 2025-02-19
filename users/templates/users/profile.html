@@ -1,0 +1,17 @@
+
+{% extends "users/base.html" %}
+
+{% block content %}
+  <h1>Профиль пользователя</h1>
+
+  <p><strong>Телефон:</strong> {{ user.phone_number }}</p>
+  <p><strong>invite-код:</strong> {{ user.invite_code }}</p>
+  
+  {% if user.invited_by %}
+    <p><strong>Пригласивший:</strong> {{ user.invited_by.phone_number }}</p>
+  {% else %}
+    <p>Вы еще не использовали invite-код.</p>
+  {% endif %}
+
+  <a href="{% url 'enter_invite_code' %}">Ввести invite-код</a>
+{% endblock %}
