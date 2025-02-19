@@ -7,7 +7,7 @@
     <form method="POST">
         {% csrf_token %}
         <label for="otp_code">Код подтверждения:</label>
-        <input type="text" name="otp_code" required>
+        <input type="text" name="otp_code" id="otp_code" required>
         <button type="submit">Подтвердить</button>
     </form>
     <p>На номер {{ phone_number }} был отправлен код.</p>
