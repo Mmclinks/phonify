@@ -3,7 +3,7 @@
 {% block title %}Инвайт-код | Phonify{% endblock %}
 
 {% block content %}
-    <h1>Введите инвайт-код</h1>
+    <h1>Введите invite-код</h1>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
