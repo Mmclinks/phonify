@@ -1,9 +1,7 @@
 import os
 from pathlib import Path
-
 from dotenv import load_dotenv
 
-import config
 
 # Устанавливаем корневую папку проекта
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -113,6 +111,10 @@ USE_TZ = True
 
 # Настройки статики
 STATIC_URL = "/static/"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 if DEBUG:
     # В режиме отладки файлы берутся из папки `static`

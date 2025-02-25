@@ -1,32 +1,26 @@
-version: '3.8'
+version: '3.9'
 
 services:
   web:
     build: .
-    container_name: django_app
-    command: gunicorn --bind 0.0.0.0:8000 app.wsgi:application
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/app
-    env_file:
-      - .env
+      - .:/code
+      - static_volume:/code/static
+    ports:
+      - "8000:8000"
     depends_on:
       - db
-    networks:
-      - backend
+    env_file:
+      - ./.env
 
   db:
-    image: postgres:17.2
-    container_name: postgres_db
-    restart: always
-    env_file:
-      - .env
+    image: postgres:17
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    networks:
-      - backend
+    env_file:
+      - ./.env
 
 volumes:
   postgres_data:
-
-networks:
-  backend:
+  static_volume:

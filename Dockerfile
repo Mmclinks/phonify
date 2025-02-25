@@ -1,5 +1,5 @@
 # Используем официальный образ Python
-FROM python:3.9
+FROM python:3.10
 
 # Устанавливаем рабочую директорию в контейнере
 WORKDIR /app
@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Запускаем сервер
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "config.wsgi:application"]
